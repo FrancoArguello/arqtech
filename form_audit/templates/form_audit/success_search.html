@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %} {% load static %} {% block main %}
+<h1 class="table-heading">Resultados de la búsqueda</h1>
+<div class="table-container">
+  <table class="result-table">
+    <thead>
+      <tr>
+        <th>Pais</th>
+        <th>Delegacion</th>
+        <th>Cliente</th>
+        <th>Sector</th>
+        <th>Saldo</th>
+        <th>Divisa</th>
+        <th>Tipo</th>
+        <th>Cantidad de tipo</th>
+        <th>Denominacion</th>
+        <th>Excedente</th>
+        <th>Faltante</th>
+        <th>Total</th>
+        <th>Fecha de auditoria</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for registro in audits %}
+      <tr>
+        <td>{{registro.pais}}</td>
+        <td>{{registro.delegacion}}</td>
+        <td>{{registro.cliente}}</td>
+        <td>{{registro.sector}}</td>
+        <td>{{registro.saldo}}</td>
+        <td>{{registro.divisa}}</td>
+        <td>{{registro.tipo}}</td>
+        <td>{{registro.cantidad}}</td>
+        <td>${{registro.denominacion}}</td>
+        <td>{{registro.excedente}}</td>
+        <td>{{registro.faltante}}</td>
+        <td>{{registro.total}}</td>
+        <td>{{registro.fecha_creacion|date:"d, F Y"}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="buttom_success">
+  <button type="button" onclick="window.location.href = '{% url 'index' %}'">
+    Volver
+  </button>
+  <button type="button" onclick="window.location.href = '{% url 'logout' %}'">
+    Salir
+  </button>
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'core/base.html' %} {% load static %} {% block main %}
+
+<form class="form_audit" action="{% url 'save_audit' %}" method="POST">
+  {% csrf_token %}
+  <fieldset class="fieldset_form_audit">
+    <legend class="title-contact">Auditoria</legend>
+    <div class="content-labels">
+      <div class="content-label">
+        <label class="label-input" for="pais"> Pais </label>
+        {{form.pais}} {{form.pais.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="delegacion"> Delegación </label>
+        {{form.delegacion}} {{form.delegacion.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="cliente"> Cliente </label>
+        {{form.cliente}} {{form.cliente.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="sector"> Sector </label>
+        {{form.sector}} {{form.sector.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="saldo"> Saldo </label>
+        {{form.saldo}} {{form.saldo.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="divisa"> Divisa </label>
+        {{form.divisa}} {{form.divisa.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="tipo"> Tipo </label>
+        {{form.tipo}} {{form.tipo.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="cantidad"> Cant. Tipo </label>
+        {{form.cantidad}} {{form.cantidad.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="denominacion"> Denominación </label>
+        {{form.denominacion}} {{form.denominacion.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="excedente"> Excedente del tipo </label>
+        {{form.excedente}} {{form.excedente.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="faltante"> Faltante del tipo </label>
+        {{form.faltante}} {{form.faltante.error}}
+      </div>
+
+      <div class="content-label">
+        <label class="label-input" for="total"> Total contabilizado </label>
+        {{form.total}} {{form.total.error}}
+      </div>
+    </div>
+    <input class="send_buttom" type="submit" value="Enviar Formulario" />
+    <button type="button" onclick="window.location.href = '{% url 'index' %}'">
+      Volver
+    </button>
+    <button type="button" onclick="window.location.href = '{% url 'logout' %}'">
+      Salir
+    </button>
+  </fieldset>
+</form>
+
+{% endblock %}

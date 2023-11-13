@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %} {% load static %} {% block main %}
+
+<form
+  class="form-search-audits"
+  action="{% url 'result_search' %}"
+  method="get"
+>
+  <div class="content-label-search-audits">
+    <label class="label-input" for="pais"> Pais </label>
+    {{form.pais}} {{form.pais.error}}
+  </div>
+
+  <div class="content-label-search-audits">
+    <label class="label-input" for="delegacion"> Delegación </label>
+    {{form.delegacion}} {{form.delegacion.error}}
+  </div>
+
+  <label for="fecha">Fecha:</label>
+  <input type="date" id="fecha" name="fecha" />
+
+  <div class="buttom_search">
+    <button class="button-search-audits" type="submit">Buscar</button>
+
+    <button
+      class="button-search-audits"
+      type="button"
+      onclick="window.location.href = '{% url 'download_excel' %}'"
+    >
+      Descargar historial de arqueos
+    </button>
+
+    <button
+      class="button-search-audits"
+      type="button"
+      onclick="window.location.href = '{% url 'index' %}'"
+    >
+      Volver
+    </button>
+    <button
+      class="button-search-audits"
+      type="button"
+      onclick="window.location.href = '{% url 'logout' %}'"
+    >
+      Salir
+    </button>
+  </div>
+</form>
+
+{% endblock %}

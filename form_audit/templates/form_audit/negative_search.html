@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %} {% load static %} {% block main %}
+
+<div class="alert-error" role="alert">
+  <strong>No existe registro de la información solicitada</strong>
+</div>
+
+<button type="button" onclick="window.location.href = '{% url 'search_audits' %}'">
+  Volver
+</button>
+<button type="button" onclick="window.location.href = '{% url 'logout' %}">
+  Salir
+</button>
+
+{% endblock %}
